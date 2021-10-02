@@ -34,7 +34,7 @@ The preceding code configures port 5001 to:
 
 Because not all routers, firewalls, and proxies properly support HTTP/3, HTTP/3 should be configured together with HTTP/1.1 and HTTP/2. This can be done by specifying `HttpProtocols.Http1AndHttp2AndHttp3` as an endpoint's supported protocols.
 
-For more information on building the host, see the **Set up a host** and **Default builder settings** sections of <xref:fundamentals/host/generic-host#set-up-a-host>.
+For more information, see <xref:fundamentals/servers/kestrel/endpoints>.
 
 ## HTTP/3 requirements
 
