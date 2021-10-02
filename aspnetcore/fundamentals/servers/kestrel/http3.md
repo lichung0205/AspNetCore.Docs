@@ -23,7 +23,7 @@ uid: fundamentals/servers/kestrel/http3
 
 ## Getting started
 
-HTTP/3 is not enabled by default. To enable HTTP/3 in an app, add configuration to app start-up. 
+HTTP/3 is not enabled by default. Add configuration to *Program.cs* to enable HTTP/3.
 
 [!code-csharp[](samples/6.x/Http3Sample/Program.cs?name=snippet_UseHttp3&highlight=7-8)]
 
