@@ -83,7 +83,7 @@ Calling the following implementations of `Microsoft.AspNetCore.Hosting.ListenOpt
 `UseHttps(this ListenOptions listenOptions, ServerOptionsSelectionCallback serverOptionsSelectionCallback, object state, TimeSpan handshakeTimeout)`
 `UseHttps(this ListenOptions listenOptions, TlsHandshakeCallbackOptions callbackOptions)`
 
-# HTTP/3 benefits
+## HTTP/3 benefits
 
 HTTP/3 uses the same semantics as HTTP/1.1 and HTTP/2: the same request methods, status codes, and message fields apply to all versions. The differences are in the underlying transport. Both HTTP/1.1 and HTTP/2 use TCP as their transport. HTTP/3 uses a new transport technology developed alongside HTTP/3 called [QUIC](https://datatracker.ietf.org/doc/html/draft-ietf-quic-transport-34).
 
