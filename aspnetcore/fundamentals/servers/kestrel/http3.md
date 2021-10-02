@@ -40,8 +40,6 @@ For more information, see <xref:fundamentals/servers/kestrel/endpoints>.
 
 HTTP/3 has different requirements depending on the operating system. If the platform that Kestrel is running on doesn't have all the requirements for HTTP/3 then it's disabled, and Kestrel will fallback to other HTTP protocols.
 
-For example, `HttpProtocols.Http1AndHttp2AndHttp3` allows Kestrel to enable HTTP/3 on environments where it is supported, with fallbacks for HTTP/1.1 and HTTP/2.
-
 ### Windows
 
 * Windows 11 Build 22000 or later OR Windows Server 2022.
