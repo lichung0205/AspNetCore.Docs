@@ -12,7 +12,7 @@ uid: fundamentals/servers/kestrel/http3
 
 # Use HTTP/3 with the ASP.NET Core Kestrel web server
 
-[HTTP/3](https://quicwg.org/base-drafts/draft-ietf-quic-http.html) is the third and upcoming major version of HTTP. This article discusses requirements for HTTP/3 and how to configure endpoints to use it.
+[HTTP/3](https://quicwg.org/base-drafts/draft-ietf-quic-http.html) is the third and upcoming major version of HTTP. This article discusses requirements for HTTP/3 and how to configure Kestrel to use it.
 
 > [!IMPORTANT]
 > HTTP/3 is available in .NET 6 as a *preview feature*. The HTTP/3 specification isn't finalized and behavioral or performance issues may exist in HTTP/3 with .NET 6.
@@ -30,7 +30,7 @@ HTTP/3 is not enabled by default. To enable HTTP/3 in an app, add configuration 
 The preceding code configures port 5001 to:
 
 * Use HTTP/3 alongside HTTP/1.1 and HTTP/2 by specifying `HttpProtocols.Http1AndHttp2AndHttp3`.
-* Enable HTTPS with `UseHttps`.
+* Enable HTTPS with `UseHttps`. HTTP/3 requires HTTPS.
 
 Because not all routers, firewalls, and proxies properly support HTTP/3, HTTP/3 should be configured together with HTTP/1.1 and HTTP/2. This can be done by specifying `HttpProtocols.Http1AndHttp2AndHttp3` as an endpoint's supported protocols.
 
@@ -38,7 +38,7 @@ For more information on building the host, see the **Set up a host** and **Defau
 
 ## HTTP/3 requirements
 
-HTTP/3 uses QUIC as its transport protocol. The .NET implementation of HTTP/3 uses [MsQuic](https://github.com/microsoft/msquic) to provide QUIC functionality. MSQuic is included in specific builds of windows and as a library for Linux. If the platform that Kestrel is running on doesn't have all the requirements for HTTP/3 then it's disabled.
+HTTP/3 has different requirements depending on the operating system. If the platform that Kestrel is running on doesn't have all the requirements for HTTP/3 then it's disabled, and Kestrel will fallback to other HTTP protocols.
 
 For example, `HttpProtocols.Http1AndHttp2AndHttp3` allows Kestrel to enable HTTP/3 on environments where it is supported, with fallbacks for HTTP/1.1 and HTTP/2.
 
@@ -51,7 +51,9 @@ The preceding Windows 11 Build versions may require the use of a [Windows Inside
 
 ### Linux
 
-On Linux, `libmsquic` is published via Microsoft official Linux package repository `packages.microsoft.com`. In order to consume it, it must be added manually. See [Linux Software Repository for Microsoft Products](/windows-server/administration/linux-package-repository-for-microsoft-software). After adding `libmsquic`, it can be installed via the package manager of your distro, for example, for Ubuntu:
+* `libmsquic` package installed.
+
+`libmsquic` is published via Microsoft official Linux package repository `packages.microsoft.com`. In order to consume it, it must be added manually. See [Linux Software Repository for Microsoft Products](/windows-server/administration/linux-package-repository-for-microsoft-software). After adding `libmsquic`, it can be installed via the package manager of your distro, for example, for Ubuntu:
 
 ```cmd
 apt install libmsquic

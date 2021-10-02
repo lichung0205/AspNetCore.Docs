@@ -7,8 +7,7 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 #region snippet_UseHttp3
 var builder = WebApplication.CreateBuilder(args);
-builder.WebHost
-.ConfigureKestrel((context, options) =>
+builder.WebHost.ConfigureKestrel((context, options) =>
 {
     options.Listen(IPAddress.Any, 5001, listenOptions =>
     {
