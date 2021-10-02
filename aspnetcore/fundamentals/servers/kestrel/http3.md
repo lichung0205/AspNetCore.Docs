@@ -21,7 +21,7 @@ uid: fundamentals/servers/kestrel/http3
 >
 > Apps configured to take advantage of HTTP/3 should be designed to also support HTTP/1.1 and HTTP/2. If issues are identified in HTTP/3, we recommended disabling HTTP/3 until the issues are resolved in a future release of ASP.NET Core. Significant issues are reported at the [Announcements GitHub repository](https://github.com/aspnet/Announcements/issues).
 
-## Get started
+## Getting started
 
 HTTP/3 is not enabled by default. To enable HTTP/3 in an app, add configuration to app start-up. 
 
